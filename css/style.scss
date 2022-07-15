@@ -1,0 +1,214 @@
+@import 'variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "main"
+        "footer"
+    ;
+
+    header,
+    main,
+    footer {
+        grid-column: 1/-1;
+    }
+
+    header {
+        grid-area: header;
+        @include flex (space-between, center);
+        padding: 1rem;
+
+        h1 {
+            cursor: pointer;
+        }
+
+        nav {
+            @include flex (space-between, center);
+            position: relative;
+
+            @media (min-width:768px) {
+                label {
+                    display: none;
+                }
+
+                #checkNav:not(:checked)+ul {
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                    position: initial;
+                }
+
+                ul {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 350px;
+                    background-color: #fff;
+
+                    li {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            #checkNav {
+                display: none;
+            }
+
+            ul {
+                list-style: none;
+                background-color: $bg-primary;
+                padding: .5rem;
+                border-radius: 1rem;
+                position: absolute;
+                top: 30px;
+                right: 5px;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: all .5s;
+            }
+
+            #checkNav:checked+ul {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+                :not(:first-child) {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+    main {
+        width: 90%;
+        margin: auto;
+        grid-area: main;
+
+        section.happy {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr));
+            padding: 1.5rem;
+
+            article {
+                h2 {
+                    @include h2;
+                }
+
+                p {
+                    color: $color-primary;
+                }
+
+                button {
+                    @include button;
+                    margin: 2rem .5rem;
+                    cursor: pointer;
+                    transition: all .5s;
+                    &:hover {
+                        transform: scale(1.5);
+                    }
+
+                    &:active {
+                        transform: scale(1);
+                    }
+                }
+            }
+
+            img {
+                width: 100%;
+                @media(min-width:1386px){
+                    grid-column: 2/4;
+                }
+            }
+        }
+
+        section.carrusel {
+            display: grid;
+            padding: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+
+            .card {
+                margin: 5px;
+                background-color: $bg-secondary;
+                padding: .5rem;
+
+                div.number {
+                    background-color: white;
+                    width: 30px;
+                    height: 30px;
+                    @include flex (center, center);
+                    border-radius: 50%;
+                    box-shadow: -4px 0px $shadow
+                }
+
+                span {
+                    font-weight: 700;
+                    width: 80%;
+                    margin: 5px 2rem;
+                }
+
+                p {
+                    width: 80%;
+                    margin: 5px auto;
+                }
+            }
+        }
+    }
+
+    footer {
+        grid-area: footer;
+        @include flex (space-between, center);
+        padding: 1rem;
+
+        div {
+            width: 120px;
+            @include flex (space-between, center);
+
+            @media (min-width: 768px) {
+                width: 20%;
+            }
+            @media (min-width:900px){
+                width: 15%;
+            }
+            @media (min-width:1100px){
+                width: 12%;
+            }
+
+            div {
+                @include flex (center, center);
+                width: 33px;
+                height: 33px;
+                border: 1px solid #808080;
+                border-radius: 50%;
+                padding: 5px;
+                margin-left: 5px;
+                box-shadow: -4px 0px $shadow;
+                cursor: pointer;
+                transition: all .5s;
+
+                &:hover {
+                    transform: scale(2);
+                }
+
+                &:active {
+                    transform: scale(1);
+                }
+
+                @media (min-width: 768px) {
+                    width: 20%;
+                }
+
+                img {
+                    width: 60%;
+
+                    &:not(:first-child) {
+                        width: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+$bg-primary: #03faee;
+$bg-secondary: #f8f8f8;
+$color-primary: #8b8b8b;
+$shadow: #92f7f2;
+
+@mixin h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 55px;
+    line-height: 70px;
+    letter-spacing: 10px;    
+}
+@mixin flex ($just, $align){
+    display: flex;
+    justify-content: $just;
+    align-items: $align;
+}
+
+@mixin button{
+    background-color: $bg-primary;
+    border: 1px dotted $color-primary;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+}

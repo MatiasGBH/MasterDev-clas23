@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-areas: "header" "main" "main" "footer";
+}
+body header,
+body main,
+body footer {
+  grid-column: 1/-1;
+}
+body header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+body header h1 {
+  cursor: pointer;
+}
+body header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+@media (min-width: 768px) {
+  body header nav label {
+    display: none;
+  }
+  body header nav #checkNav:not(:checked) + ul {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    position: initial;
+  }
+  body header nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+    background-color: #fff;
+  }
+  body header nav ul li {
+    cursor: pointer;
+  }
+}
+body header nav #checkNav {
+  display: none;
+}
+body header nav ul {
+  list-style: none;
+  background-color: #03faee;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  position: absolute;
+  top: 30px;
+  right: 5px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: all 0.5s;
+}
+body header nav #checkNav:checked + ul {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+body header nav #checkNav:checked + ul :not(:first-child) {
+  margin-top: 10px;
+}
+body main {
+  width: 90%;
+  margin: auto;
+  grid-area: main;
+}
+body main section.happy {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr));
+  padding: 1.5rem;
+}
+body main section.happy article h2 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 55px;
+  line-height: 70px;
+  letter-spacing: 10px;
+}
+body main section.happy article p {
+  color: #8b8b8b;
+}
+body main section.happy article button {
+  background-color: #03faee;
+  border: 1px dotted #8b8b8b;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin: 2rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+body main section.happy article button:hover {
+  transform: scale(1.5);
+}
+body main section.happy article button:active {
+  transform: scale(1);
+}
+body main section.happy img {
+  width: 100%;
+}
+@media (min-width: 1386px) {
+  body main section.happy img {
+    grid-column: 2/4;
+  }
+}
+body main section.carrusel {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+body main section.carrusel .card {
+  margin: 5px;
+  background-color: #f8f8f8;
+  padding: 0.5rem;
+}
+body main section.carrusel .card div.number {
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: -4px 0px #92f7f2;
+}
+body main section.carrusel .card span {
+  font-weight: 700;
+  width: 80%;
+  margin: 5px 2rem;
+}
+body main section.carrusel .card p {
+  width: 80%;
+  margin: 5px auto;
+}
+body footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+body footer div {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  body footer div {
+    width: 20%;
+  }
+}
+@media (min-width: 900px) {
+  body footer div {
+    width: 15%;
+  }
+}
+@media (min-width: 1100px) {
+  body footer div {
+    width: 12%;
+  }
+}
+body footer div div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33px;
+  height: 33px;
+  border: 1px solid #808080;
+  border-radius: 50%;
+  padding: 5px;
+  margin-left: 5px;
+  box-shadow: -4px 0px #92f7f2;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+body footer div div:hover {
+  transform: scale(2);
+}
+body footer div div:active {
+  transform: scale(1);
+}
+@media (min-width: 768px) {
+  body footer div div {
+    width: 20%;
+  }
+}
+body footer div div img {
+  width: 60%;
+}
+body footer div div img:not(:first-child) {
+  width: 20px;
+}/*# sourceMappingURL=style.css.map */
